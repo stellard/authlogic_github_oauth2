@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101216001351) do
+ActiveRecord::Schema.define(:version => 20101216004605) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(:version => 20101216001351) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "oauth2_token"
   end
+
+  add_index "users", ["oauth2_token"], :name => "index_users_on_oauth2_token"
 
 end
